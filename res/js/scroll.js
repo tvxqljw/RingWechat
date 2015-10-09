@@ -53,13 +53,23 @@ HorizontalScroll.prototype={
 
 
 		//add event
-		$(".img-left").on("click",function(){
+		$(_this.wrap).on("swiperight",function(){
+			console.log("turn right");
 			_this.doPre();
 		});
-
-		$(".img-right").on("click",function(){
-			_this.doNext();
+		$(_this.wrap).on("swipeleft",function(){
+			console.log("turn left");
+			_this.doPre();
 		});
+		// $(".img-left").on("swiperight",function(){
+		// 	console.log("turn right");
+		// 	_this.doPre();
+		// });
+
+		// $(".img-right").on("swipeleft",function(){
+		// 	console.log("turn left");
+		// 	_this.doNext();
+		// });
 		
 	},
 
