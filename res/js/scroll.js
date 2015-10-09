@@ -43,7 +43,7 @@ HorizontalScroll.prototype={
 			startIndex = parseInt(middleIndex-1);
 			endIndex = parseInt(middleIndex+1);
 		}
-		console.log("left:"+startIndex+" middle:"+middleIndex+" end:"+endIndex);
+		//console.log("left:"+startIndex+" middle:"+middleIndex+" end:"+endIndex);
 		//left
 		$(_this.aLi[startIndex]).show().find("img").addClass("img-left").addClass("img-responsive");
 		//middle
@@ -53,23 +53,24 @@ HorizontalScroll.prototype={
 
 
 		//add event
+		$(_this.wrap).unbind();
 		$(_this.wrap).on("swiperight",function(){
 			console.log("turn right");
 			_this.doPre();
 		});
 		$(_this.wrap).on("swipeleft",function(){
 			console.log("turn left");
-			_this.doPre();
+			_this.doNext();
 		});
-		// $(".img-left").on("swiperight",function(){
+
+		// $(_this.wrap).unbind("swiperight").swiperight(function(e){ 
 		// 	console.log("turn right");
 		// 	_this.doPre();
-		// });
-
-		// $(".img-right").on("swipeleft",function(){
+		//  });
+		// $(_this.wrap).unbind("swipeleft").swiperight(function(e){ 
 		// 	console.log("turn left");
 		// 	_this.doNext();
-		// });
+		//  });
 		
 	},
 
