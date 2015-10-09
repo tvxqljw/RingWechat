@@ -9,15 +9,15 @@ HorizontalScroll.prototype={
 		this.oUl=this.wrap.getElementsByTagName("ul")[0];
 		this.aLi=this.wrap.getElementsByTagName("li");
 		this.List=[];
-		this.middle = 1;
+		this.middle = 0;
 		this.startIndex = _this.middle,
 		this.endIndex = _this.middle;
 		this.addClass(_this.middle);
 		this._doPre=function(){
-            return _this.doPre.apply(_this)
+            return _this.doPre.apply(_this);
         };
 		this._doNext=function(){
-            return _this.doNext.apply(_this)
+            return _this.doNext.apply(_this);
         };
 		//_this.doPre();
 		//_this.doNext();
@@ -43,47 +43,39 @@ HorizontalScroll.prototype={
 			startIndex = parseInt(middleIndex-1);
 			endIndex = parseInt(middleIndex+1);
 		}
-		//console.log("left:"+startIndex+" middle:"+middleIndex+" end:"+endIndex);
 		//left
-		$(_this.aLi[startIndex]).show().find("img").addClass("img-left").addClass("img-responsive");
+		$(_this.aLi[startIndex]).show().find("img").removeClass().addClass("img-left").addClass("img-responsive");
 		//middle
-		$(_this.aLi[middleIndex]).show().find("img").addClass("img-middle").addClass("img-responsive");
+		$(_this.aLi[middleIndex]).show().find("img").removeClass().addClass("img-middle").addClass("img-responsive");
 		//right
-		$(_this.aLi[endIndex]).show().find("img").addClass("img-right").addClass("img-responsive");
+		$(_this.aLi[endIndex]).show().find("img").removeClass().addClass("img-right").addClass("img-responsive");
 
 
 		//add event
 		$(_this.wrap).unbind();
-		$(_this.wrap).on("swiperight",function(){
-			console.log("turn right");
+		$(_this.wrap).on("swiperight",function(){	
 			_this.doPre();
 		});
 		$(_this.wrap).on("swipeleft",function(){
-			console.log("turn left");
 			_this.doNext();
 		});
 
-		// $(_this.wrap).unbind("swiperight").swiperight(function(e){ 
-		// 	console.log("turn right");
-		// 	_this.doPre();
-		//  });
-		// $(_this.wrap).unbind("swipeleft").swiperight(function(e){ 
-		// 	console.log("turn left");
-		// 	_this.doNext();
-		//  });
-		
 	},
 
 	doPre:function(){
 		var _this = this;
 		_this.middle = startIndex;
 		_this.addClass(_this.middle);
+		console.log("turn left");
+
+			
 	},
 
 	doNext:function(){
 		var _this = this;
 		_this.middle = endIndex;
 		_this.addClass(_this.middle);
+		console.log("turn right");
 	}
 
 }
