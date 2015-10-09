@@ -81,11 +81,12 @@ summary {
 .img-title{
   margin: 0 auto;
   padding: 5% 25%;
+  width: 90%;
 }
 
 .img-owl{
   margin: 0 auto;
-  max-width: 50px !important;
+  max-width: 40px !important;
 }
 
 .show{
