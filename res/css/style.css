@@ -164,11 +164,8 @@ summary {
 } 
 
 @media screen and (max-height: 480px){
-  .img-middle{
-  width: 50%;
-}
+  .bg{
+    position: relative;
+} 
 
-.img-left,.img-right{
-  width:40%;
-}
 } 
