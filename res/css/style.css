@@ -57,7 +57,7 @@ summary {
     background: #000;
     width:100%;
     height:auto;
-    position: fixed;
+    position: relative;
 }   
 
 .img-bg {
